@@ -52,6 +52,7 @@ classes = { 0:'Speed limit (20km/h)',
             41:'End of no passing',
             42:'End no passing vehicle > 3.5 tons' }
 
+
 def image_processing(img):
     model = load_model('model.h5')
     data=[]
@@ -63,9 +64,11 @@ def image_processing(img):
     predclass = np.argmax(Y_pred, axis=1)
     return predclass
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -82,6 +85,7 @@ def upload():
         os.remove(file_path)
         return result
     return None
+
 
 if __name__ == '__main__':
     app.run(debug=True)
