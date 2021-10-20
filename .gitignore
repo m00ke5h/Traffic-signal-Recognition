@@ -6,3 +6,4 @@ Train/
 test/
 Test/
 venv/
+__pycache__/
